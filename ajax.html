@@ -15,18 +15,28 @@
             text-align: center;
             padding: 10px;
             color: white;
-            width:500px;
+            width: 500px;
             height: 200px;
-            margin:0 auto;
+            margin: 0 auto;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $("#sub").click(function () {
+                var user_name = $("#name").val();
+                $.post("test.php", {name: user_name}, function (data) {
+                    $("#result").html(data);
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
 
 <div id="box">
     <h2>New User Register Here:</h2>
-    <input type="text" name="name" id="name" placeholder="Enter Your name"/> <br/>
+    <input type="text" name="name" id="name" placeholder="Enter Your name"/> <br/> <br/>
     <input type="submit" name="sub" value="Submit" id="sub"/>
     <div id="result"></div>
 </div>
